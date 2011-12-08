@@ -353,8 +353,7 @@ MODULE_PARM_DESC(bt_fw_version, "BT's fw version");
 
 #ifdef CONFIG_SERIAL_MSM_HS_PURE_ANDROID
 &bcm_bt_lpm_device,
- #endif
-
+#endif
 static int pm8058_gpios_init(struct pm8058_chip *pm_chip)
 {
 	/* touch panel */
@@ -2167,6 +2166,9 @@ static struct platform_device android_pmem_kernel_ebi1_devices = {
 
 static struct platform_device *devices[] __initdata = {
 	&msm_device_uart2,
+#ifdef CONFIG_SERIAL_MSM_HS_PURE_ANDROID
+        &bcm_bt_lpm_device,
+#endif
 	&msm_device_smd,
 	&lexikon_rfkill,
 #ifdef CONFIG_I2C_SSBI
