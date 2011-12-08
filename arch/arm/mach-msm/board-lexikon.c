@@ -351,9 +351,6 @@ module_param_string(bt_fw_version, bt_fw_version, sizeof(bt_fw_version), S_IWUSR
 MODULE_PARM_DESC(bt_fw_version, "BT's fw version");
 #endif
 
-#ifdef CONFIG_SERIAL_MSM_HS_PURE_ANDROID
-&bcm_bt_lpm_device,
-#endif
 static int pm8058_gpios_init(struct pm8058_chip *pm_chip)
 {
 	/* touch panel */
