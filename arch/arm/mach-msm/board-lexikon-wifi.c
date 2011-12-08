@@ -77,7 +77,7 @@ static struct resource lexikon_wifi_resources[] = {
 		.name		= "bcm4329_wlan_irq",
 		.start		= MSM_GPIO_TO_INT(LEXIKON_GPIO_WIFI_IRQ),
 		.end		= MSM_GPIO_TO_INT(LEXIKON_GPIO_WIFI_IRQ),
-		.flags          = IORESOURCE_IRQ | IORESOURCE_IRQ_LOWEDGE,
+		.flags      = IORESOURCE_IRQ | IORESOURCE_IRQ_HIGHLEVEL | IORESOURCE_IRQ_SHAREABLE,
 	},
 };
 
@@ -137,6 +137,7 @@ int __init lexikon_wifi_init(void)
 	lexikon_wifi_update_nvs("sd_oobonly=1\n");
 	lexikon_wifi_update_nvs("btc_params80=0\n");
 	lexikon_wifi_update_nvs("btc_params6=30\n");
+        lexikon_wifi_update_nvs("btc_params70=0x32\n");
 	lexikon_init_wifi_mem();
 	ret = platform_device_register(&lexikon_wifi_device);
 	return ret;
